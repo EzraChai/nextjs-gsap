@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Head from 'next/head'
 import arrow from "../public/images/right-arrow.svg"
 import firstImage from "../public/images/2019-08-03_02-14-41_UTC_2.jpg"
 import secondImage from "../public/images/2020-05-01_05-12-27_UTC_2.jpg"
@@ -34,7 +35,7 @@ export default function Home() {
     .from(".text",{y:40 ,duration: 1, opacity: 0, ease: "power3.out"},.8)
     .from(".btn-row",{y:40 ,duration: 1, opacity: 0, ease: "power3.out"},1)
     }
-  },[timeline])
+  },[timeline,imageLoaded])
 
   const handleImageLoaded = () => {
     setImageLoaded(true)
@@ -42,6 +43,10 @@ export default function Home() {
   
   return (
     <div className="hero">
+      <Head>
+          <title>GSAP Next JS</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className="container">
         <div className="hero-inner">
           <div className="hero-content">
